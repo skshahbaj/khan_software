@@ -99,9 +99,13 @@ import sub_cate from "./router/sub_cate.router.js";
 import rou from "./router/skhan.router.js";
 import review from "./router/review.rating.router.js";
 import product from "./router/product.router.js";
+import { config } from 'dotenv'
 const app = express();
 app.use(express.json())
 
+
+
+config();
 connect();
 app.use(detali)
 app.use(sub_cate)
@@ -110,6 +114,6 @@ app.use(rou)
 app.use(review)
 app.use(product)
 
-app.listen(3001, (req, res) => {
+app.listen(process.env.PORT|| 3001, (req, res) => {
   console.log('create server');
 })
