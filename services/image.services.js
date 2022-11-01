@@ -23,30 +23,30 @@
 //   }
 // })
 
-import multer from "multer";
-import path from "path";
-console.log("concet----image services")
+// import multer from "multer";
+// import path from "path";
+// console.log("concet----image services")
 
-const imagepath = multer.diskStorage({
-  destination: "iphone.image",
-  filename: (req, file, callback) => {
-    console.log("Images-----", file)
+// const imagepath = multer.diskStorage({
+//   destination: "iphone.image",
+//   filename: (req, file, callback) => {
+//     console.log("Images-----", file)
 
-    callback(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+//     callback(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname))
      
-  }
-});
+//   }
+// });
 
-export const imageUpload = multer({
-  storage: imagepath,
-  limits: {
-    fileSize: 1000000 * 3
-  },
-  fileFilter(req, file, callback) {
-    if (!file.originalname.match(/\.(png|jpg|jpeg)$/)) {
+// export const imageUpload = multer({
+//   storage: imagepath,
+//   limits: {
+//     fileSize: 1000000 * 3
+//   },
+//   fileFilter(req, file, callback) {
+//     if (!file.originalname.match(/\.(png|jpg|jpeg)$/)) {
 
-      return callback(new Error('Please upload a Image'))
-    }
-    callback(undefined,true)
-  }
-})
+//       return callback(new Error('Please upload a Image'))
+//     }
+//     callback(undefined,true)
+//   }
+// })

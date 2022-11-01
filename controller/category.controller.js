@@ -2,11 +2,12 @@ import khan from "../models/category.model.js";
 
 
 export const category = async (req, res) => {
+    try{
     const product = await khan.create(req.body);
     if (product) {
         res.send({
             status: true,
-            msg: 'create succefull',
+            msg: ' succefull',
             data: product
         })
     } else {
@@ -16,11 +17,18 @@ export const category = async (req, res) => {
             data: {}
         })
     }
+}catch(err){
+    res.send({
+        status: false,
+        msg: 'wrong ',
+        data: err
+    })
+}
 
 };
 
 export const categoryLogin = async (req, res) => {
-    var getuser = await khan.find({ status: "Deactive" }).populate("createdBy")
+    var getuser = await khan.find().populate("createdBy")
     if (getuser) {
         res.send({
             status: true,

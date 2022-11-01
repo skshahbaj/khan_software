@@ -1,30 +1,31 @@
 import pro from "../models/product.models.js";
-export const proCreate = async (req, res) => {
-    var allImages = [];
-    req.files.forEach(image => {
-        var imageType = '';
-        if (image.mimetype == 'image/png') {
-            imageType = 'png';
-        } else if (image.mimetype == 'image/jpg' || image.mimetype == 'image/jpeg') {
-            imageType = 'jpg';
-        }
-        let imageData = {
-            path: image.filename,
-            fullpath: "localhost:3002/" + image.path,
-            type: imageType,
-        }
-        allImages.push(imageData)
-    });
-    req.body.images = allImages
+export const proCreate = async (req, res) => { 
+    try{
+    // var allImages = [];
+    // req.files.forEach(image => {
+    //     var imageType = '';
+    //     if (image.mimetype == 'image/png') {
+    //         imageType = 'png';
+    //     } else if (image.mimetype == 'image/jpg' || image.mimetype == 'image/jpeg') {
+    //         imageType = 'jpg';
+    //     }
+    //     let imageData = {
+    //         path: image.filename,
+    //         fullpath: "localhost:3002/" + image.path,
+    //         type: imageType,
+    //     }
+    //     allImages.push(imageData)
+    // });
+    // req.body.images = allImages
 
-    // const existname = await pro.findOne({name:req.body.name})
-    // if(existname){
-    //     res.send({
-    //         status:false,
-    //         msg:'already name exist',
-    //         data:{}
-    //     })
-    // }
+    const existname = await pro.findOne({name:req.body.name})
+    if(existname){
+        res.send({
+            status:false,
+            msg:'already name exist',
+            data:{}
+        })
+    }
 
     const productD = await pro.create(req.body);
     if (productD) {
@@ -40,6 +41,13 @@ export const proCreate = async (req, res) => {
             data: {}
         })
     }
+}catch(err){
+    res.send({
+        status: false,
+        msg: 'wrong',
+        data: err
+    })
+}
 
 
 };

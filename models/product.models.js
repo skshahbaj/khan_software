@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import ProImages from "./pro.images.js";
+// import ProImages from "./pro.images.js";
 
 const productschema = new mongoose.Schema({
     createdBy: {
@@ -14,7 +14,7 @@ const productschema = new mongoose.Schema({
         type: String,
         require: true
     },
-    images:[ProImages],
+    // images:[ProImages],
 
     status: {
         type: String,
