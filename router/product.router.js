@@ -4,7 +4,7 @@ import { proCreate, productAlldata, productD_delete, productD_update } from "../
 export const product = Express.Router();
 
 
- product.route("/test/product_create") .post(imageUpload.array("iphone.immage",2),proCreate);
+ product.route("/test/product_create") .post(imageUpload.array("image",2),proCreate);
 product.route("/test/product_allData").get( productAlldata)
 product.route("/test/product_update").put(productD_update);
 product.route("/test/product_delete").delete(productD_delete);

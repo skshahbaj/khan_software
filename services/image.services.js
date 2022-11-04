@@ -28,7 +28,7 @@ import path from "path";
 console.log("concet----image services")
 
 const imagepath = multer.diskStorage({
-  destination: "iphone.image",
+  destination: "upload",
   filename: (req, file, callback) => {
     console.log("Images-----", file)
 

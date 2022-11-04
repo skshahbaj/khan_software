@@ -1,6 +1,7 @@
 import pro from "../models/product.models.js";
 export const proCreate = async (req, res) => { 
-    try{
+    // try{
+        
     var allImages = [];
     req.files.forEach(image => {
         var imageType = '';
@@ -11,9 +12,10 @@ export const proCreate = async (req, res) => {
         }
         let imageData = {
             path: image.filename,
-            fullpath: "localhost:3002/" + image.path,
+            fullpath: req.get('host')+"/" + image.path,
             type: imageType,
         }
+        console.log("imageData------",imageData);
         allImages.push(imageData)
     });
     req.body.images = allImages
@@ -41,13 +43,13 @@ export const proCreate = async (req, res) => {
             data: {}
         })
     }
-}catch(err){
-    res.send({
-        status: false,
-        msg: 'wrong',
-        data: err
-    })
-}
+// }catch(err){
+//     res.send({
+//         status: false,
+//         msg: 'wrong',
+//         data: err
+//     })
+// }
 
 
 };
