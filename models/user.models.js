@@ -48,6 +48,15 @@ const UserSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    number_varified:{
+        type:Boolean,
+        require:false,
+        default:false
+    },
+    otp:{
+        type:Number,
+        require:false
     }
 
 })

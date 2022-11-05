@@ -1,4 +1,4 @@
-import { login, allData, oneupdate, update, deletedata, paramsdelete, signup } from "../controller/user.controller.js"
+import { login, allData, oneupdate, update, deletedata, paramsdelete, signup, resendOTP } from "../controller/user.controller.js"
 import Express from "express"
 import { auth } from "../middleware/authentication.js"
 
@@ -11,6 +11,7 @@ route.route("/oneupdate/:mobile/:username").put(oneupdate);
 route.route("/update").put(update);
 route.route("/delete").delete(deletedata);
 route.route("/onedelete/:email").delete(paramsdelete);
+route.route("/test/otp").post(resendOTP)
 
 
 

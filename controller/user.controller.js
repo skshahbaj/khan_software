@@ -186,4 +186,18 @@ export const paramsdelete = async(req,res)=>{
       })
    }
 }
- 
+  
+
+export const resendOTP = async(req,res)=>{
+   // res.send("otp");
+   var otp = 1234
+
+   req.body.otp = otp
+
+   const data = await users.findByIdAndUpdate({_id:req.body.id},req.body)
+   if(data){
+      res.send(data)
+   }else{
+      res.send("'shi nhi hai")
+   }
+}
