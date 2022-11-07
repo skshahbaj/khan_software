@@ -1,46 +1,51 @@
 import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
-    firstName: {
-        type: String,
-        require: true
-    },
-    lastName: {
-        type: String,
-        require: true
-    },
+    // firstName: {
+    //     type: String,
+    //     require: true
+    // },
+    // lastName: {
+    //     type: String,
+    //     require: true
+    // },
     username: {
         type: String,
-        require: true
+        require: true,
+      
     },
     email: {
+        
         type: String,
-        require: true
+        require: true,
+        
     },
-    age: {
+
+    mobile: {
         type: Number,
-        require: true
-    },
-    Aadarcard_Number: {
-        type: Number,
-        require: true
-    },
-    pincard: {
-        type: String,
-        require: true
-    },
-    companyName: {
-        type: String,
-        require: true
+        require: true,
+      
     },
     password: {
         type: String,
         require: true
     },
-    mobile: {
-        type: Number,
-        require: true
-    },
+    // age: {
+    //     type: Number,
+    //     require: true
+    // },
+    // Aadarcard_Number: {
+    //     type: Number,
+    //     require: true
+    // },
+    // pincard: {
+    //     type: String,
+    //     require: true
+    // },
+    // companyName: {
+    //     type: String,
+    //     require: true
+    // },
     token: {
         type: String,
         require: true
@@ -49,11 +54,11 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    number_varified:{
-        type:Boolean,
-        require:false,
-        default:false
-    },
+    // number_varified:{
+    //     type:Boolean,
+    //     require:false,
+    //     default:false
+    // },
     otp:{
         type:Number,
         require:false

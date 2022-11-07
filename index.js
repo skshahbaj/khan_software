@@ -102,40 +102,15 @@ import rou from "./router/skhan.router.js";
 import review from "./router/review.rating.router.js";
 import product from "./router/product.router.js";
 import { config } from 'dotenv'
-import { nodemailer1 } from "./controller/mail.js";
+// import { mail } from "./controller/mail.js";
 
 const app = express();
 app.use(express.json())
 
-// const transport = nodemailer.createTransport({
-//     host:"smtp.gmail.com",
-//     port:587,
-//     secure:false,
-//      requireTLS:true,
-//     auth:{
-//         user:'shahbaj090khan@gmail.com',
-//         pass:'shahbajkhan00'
-//     }
 
-// });
-
-// const mailoption = {
-//     from:'shahbaj090khan@gmail.com',
-//     to:'shahbaj090khan@gmail.com',
-//     subject:"jaruri work hai ",
-//     text:"aaj ka work pura hua kya??"
-// }
-// transport.sendMail(mailoption,function(err,info){
-//  if(err){
-//     console.log(err)
-//  }else{
-//     console.log('email send',info.response)
-//  }
-// })
-
-
-
-
+ 
+ 
+// mail();
 config();
 connect();
 

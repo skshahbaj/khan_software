@@ -1,22 +1,24 @@
-import nodemailer from "nodemailer"
-export const nodemailer1 = (req,res)=>{
+ import nodemailer from "nodemailer";
+
+ export const mail = (req,res)=>{
+
 const transport = nodemailer.createTransport({
-    host:"smtp.gamil.com",
-    port:3001,
+    host:"smtp.gmail.com",
+    port:587,
     secure:false,
-    requireTLS:true,
+     requireTLS:true,
     auth:{
-        user:'shahbaj090khan@gamil.com',
-        pass:'khan123'
+        user:'shahbaj090khan@gmail.com',
+        pass:'hwgeubbsnqctcjyi'
     }
 
 });
 
 const mailoption = {
-    from:'shahbaj090khan@gamil.com',
-    to:'shahbaj090khan@gamil.com',
-    subject:"jaruri work hai ",
-    text:"aaj ka work pura hua kya??"
+    from:'shahbaj090khan@gmail.com',
+    to:'aarif.solankey@gmail.com',
+    subject:"completed mail  ",
+    text:"or bhaiya"
 }
 transport.sendMail(mailoption,function(err,info){
  if(err){
@@ -25,5 +27,4 @@ transport.sendMail(mailoption,function(err,info){
     console.log('email send',info.response)
  }
 })
-
-}
+ }
