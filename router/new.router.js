@@ -4,7 +4,7 @@ import { auth } from "../middleware/authentication.js"
 
 export const route = Express.Router();
 
-route.route("/signup").get(signup);
+route.route("/signup").post(signup);
 route.route("/login").post(login);
 // route.route("/all_data").get(allData);
 // route.route("/oneupdate").put(oneupdate);
