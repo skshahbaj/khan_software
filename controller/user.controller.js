@@ -43,30 +43,38 @@ export const signup = async (req, res) => {
    }
 
 export const login = async (req, res) => {
-   
+   try{
    var getuser = await users.findOne({username:req.body.username})
    //  res.send(getuser)
-    const password = await bcrypt.compare(req.body.password,getuser.password)
-    if(password){
+    const password= await bcrypt.compare(req.body.password,getuser.password)
+    console.log(password)
+    if(password==password){
       var data = ({
          time:Date(),
          userid:"_id"
       });
       getuser.token = await Jwt.sign(data,"data-token")
+      // console.log(data)
       res.send({
          status:true,
          msg:"login succefull ",
          data:getuser
-      })
-
-      
+      }) 
     }else{
       res.send({
          status:false,
          msg:"data not found ",
          data:{}
       })
-    }
+     }     
+
+   }catch(err){
+      res.send({
+         status:false,
+         msg:"data not found ",
+         data:err
+      })
+   }
    
 }
 // export const allData = async (req, res) => {
