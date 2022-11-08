@@ -161,6 +161,12 @@ export const deletedata = async (req, res) => {
       //  res.send(data)
       if (data) {
          res.send({
+            status: false,
+            msg: "delete succfull",
+            data: data
+         })
+      }else{
+         res.send({
             status: true,
             msg: "delete succfull",
             data: data
