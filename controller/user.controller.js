@@ -46,7 +46,7 @@ export const login = async (req, res) => {
    
    var getuser = await users.findOne({username:req.body.username})
    //  res.send(getuser)
-    var password = await bcrypt.compare(req.body.password,getuser.password)
+    const password = await bcrypt.compare(req.body.password,getuser.password)
     if(password){
       var data = ({
          time:Date(),
